@@ -10,13 +10,20 @@ import {
 } from "@remix-run/react";
 import { useCookies } from "react-cookie";
 
-import { Button, darkMode, lightMode, styled } from "@libellum-ds/react";
+import { Button, Certificate, Text, darkMode, lightMode, styled } from "@libellum-ds/react";
 
 type Theme = 'light' | 'dark'
 type ThemeCookie = {theme: Theme}
 
 const Body = styled('body', { 
+  maxWidth: '1024px',
+  margin: '40px auto 0',
+  padding: '0 $spacing-sm',
   backgroundColor: '$$bgColor',
+})
+
+const Title = styled(Text, {
+  marginTop: '$spacing-sm'
 })
 
 export const meta: MetaFunction = () => ({
@@ -54,6 +61,10 @@ export default function App() {
       <Body className={currentTheme} style={{ backgroundColor: currentBgColor }}>
 
         <Button onClick={handleToggleTheme}>{theme.toUpperCase()} </Button>
+
+        <Title type="display" as="div">
+          <Certificate/> Use Libellum DS <Certificate />
+        </Title>
 
         <Outlet />
         <ScrollRestoration />

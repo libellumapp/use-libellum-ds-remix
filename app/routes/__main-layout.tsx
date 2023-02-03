@@ -1,25 +1,26 @@
-import { Search, ButtonLink } from '@libellum-ds/react'
+import { ButtonLink, styled } from '@libellum-ds/react'
 import { Link, Outlet } from '@remix-run/react'
-import { Group } from '~/components/Group';
+
+const NavContainer = styled('nav', {
+  display: 'flex',
+  gap: '$spacing-sm',
+  padding: '$spacing-sm 0'
+})
 
 const Home = () => {
   return (
     <>
-    <Group>
-      <ButtonLink as={Link} to="/home">
-        <Search />
-        Home (Router Link)
-        <Search />
-      </ButtonLink>
+      <NavContainer>
+        <ButtonLink as={Link} to="/home">
+          Home
+        </ButtonLink>
 
-      <ButtonLink as={Link} to="/components">
-        <Search />
-        Components (Router Link)
-        <Search />
-      </ButtonLink>
-    </Group>
+        <ButtonLink as={Link} to="/components">
+          Components
+        </ButtonLink>
+      </NavContainer>
 
-    <Outlet />
+      <Outlet />
   </>
   )
 }
