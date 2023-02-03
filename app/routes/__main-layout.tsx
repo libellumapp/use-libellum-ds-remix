@@ -4,7 +4,7 @@ import { Link, Outlet } from '@remix-run/react'
 const NavContainer = styled('nav', {
   display: 'flex',
   gap: '$spacing-sm',
-  padding: '$spacing-sm 0'
+  padding: '$spacing-sm 0',
 })
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
       </NavContainer>
 
       <Outlet />
-  </>
+    </>
   )
 }
 

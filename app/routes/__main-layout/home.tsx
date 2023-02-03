@@ -1,9 +1,9 @@
-import { Text, Certificate } from '@libellum-ds/react'
+import { Certificate, Text } from '@libellum-ds/react'
 
 const Home = () => {
   return (
     <Text type="display" as="div">
-      <Certificate/> Home <Certificate />
+      <Certificate /> Home <Certificate />
     </Text>
   )
 }
