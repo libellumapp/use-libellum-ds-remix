@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import {
-  type ActionFunction,
+  // type ActionFunction,
   Form,
-  useActionData /*useRouteLoaderData*/,
+  // useActionData,
 } from 'react-router-dom'
 
 import { Button, Flag, Switch, Text } from '@libellum-ds/react'
@@ -10,25 +10,28 @@ import { Button, Flag, Switch, Text } from '@libellum-ds/react'
 import { Group } from '../../../components/Group'
 // import { type ComponentLoaderData } from '../components'
 
-type ActionData = {
-  toggleValue: string | null
-}
+// type ActionData = {
+//   toggleValue: string | null
+// }
 
-export const action: ActionFunction = async ({ request }) => {
-  const formData = await request.formData()
-  const toggleValue = formData.get('uncontrolledSwitch')
-  console.log('toggleValue', toggleValue)
-  return { toggleValue }
-}
+// export const action: ActionFunction = async ({ request }) => {
+//   const formData = await request.formData()
+//   const toggleValue = formData.get('uncontrolledSwitch')
+//   console.log('toggleValue', toggleValue)
+//   return { toggleValue }
+// }
 
 const ComponentSwitch = () => {
-  const actionData = useActionData() as ActionData
+  console.log('renderizando => 1')
+  // const actionData = useActionData() as ActionData
+  console.log('renderizando => 2')
   //   const componentLoaderData = useRouteLoaderData('components') as ComponentLoaderData
   //   console.log('componentLoaderData.ok at ComponentSwitch',componentLoaderData)
 
   const unControlledSwitchRef = useRef<HTMLButtonElement | null>(null)
   const unControlledSwitcMessagehRef = useRef<HTMLParagraphElement | null>(null)
   const [swtichValue, setSwitchValue] = useState(false)
+  console.log('renderizando => 3')
 
   const handleControlledSwitchChange = () => {
     setSwitchValue((state) => {
@@ -49,12 +52,17 @@ const ComponentSwitch = () => {
   }
 
   useEffect(() => {
-    if (unControlledSwitcMessagehRef.current) {
-      const messageValue = actionData?.toggleValue ? 'on' : 'off'
-      const message = `The submitted value is ${messageValue}`
-      unControlledSwitcMessagehRef.current.innerText = message
-    }
-  }, [actionData?.toggleValue])
+    console.log('renderizando => useEffect')
+
+    // if (unControlledSwitcMessagehRef.current) {
+    //   const messageValue = actionData?.toggleValue ? 'on' : 'off'
+    //   const message = `The submitted value is ${messageValue}`
+    //   unControlledSwitcMessagehRef.current.innerText = message
+    // }
+  }, [])
+  // }, [actionData?.toggleValue])
+
+  console.log('renderizando => 4')
 
   return (
     <>
